@@ -6,7 +6,7 @@ interface Options {
 }
 
 export class Server {
-	private app = express();
+	public readonly app = express();
 	private readonly port: number;
 	private readonly publicPath: string;
 
@@ -25,11 +25,5 @@ export class Server {
 
 	public setRoutes(router: Router) {
 		this.app.use(router);
-	}
-
-	async start() {
-		this.app.listen(this.port, () => {
-			console.log(`Server running on port ${this.port}`);
-		});
 	}
 }
